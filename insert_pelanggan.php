@@ -3,17 +3,15 @@ include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST["nama"];
-    $username = $_POST["username"];
-    $role = $_POST["role"];
+    $alamat = $_POST["alamat"];
+    $telepon = $_POST["telepon"];
 
-    $sql = "INSERT INTO karyawan (nama, username, role) VALUES ('$nama', '$username', '$role')";
+    $sql = "INSERT INTO pelanggan (nama, alamat, telepon) VALUES ('$nama', '$alamat', '$telepon')";
     
 
-    
-
-    if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql) === TRUE) {
         echo "<script>
-                alert('User Berhasil di Masukan!');
+                alert('Pelanggan Berhasil di Masukan!');
                 window.location.href='admin.php';
               </script>";
         exit();

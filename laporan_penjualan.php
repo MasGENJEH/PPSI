@@ -7,7 +7,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 $offset = ($page - 1) * $limit;
 
-$order = isset($_GET['order']) ? $_GET['order'] : 'id_penjualan';
+$order = isset($_GET['order']) ? $_GET['order'] : 'id';
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'asc';
 
 $next_sort = $sort === 'asc' ? 'desc' : 'asc';
@@ -18,7 +18,7 @@ $total_items = $total_result->fetch_row()[0];
 
 $total_pages = ceil($total_items / $limit);
 
-$sql = "SELECT id_penjualan, id_pelanggan, id_kasir, tanggal_penjualan, total_harga
+$sql = "SELECT id, id_pelanggan, id_kasir, tanggal_penjualan, total_harga
 FROM penjualan 
 ORDER BY $order $sort 
 LIMIT $limit OFFSET $offset";

@@ -4,20 +4,14 @@ INSERT INTO PELANGGAN (nama, alamat, telepon) VALUES
 ('Siti Aminah', 'Jl. Raya No. 25, Bandung', '08234567890'),
 ('Andi Wijaya', 'Jl. Kebon Jeruk No. 5, Surabaya', '08345678901');
 
--- Data untuk tabel MANAGER
-INSERT INTO MANAGER (nama, username) VALUES
-('Wahyu Suryana', 'wahyu.manager'),
-('Diana Suryani', 'diana.manager');
-
--- Data untuk tabel ADMIN
-INSERT INTO ADMIN (nama, username) VALUES
-('Ali Nur', 'ali.admin'),
-('Tina Susanti', 'tina.admin');
-
--- Data untuk tabel KASIR
-INSERT INTO KASIR (nama, username) VALUES
-('Rina Puspita', 'rina.kasir'),
-('Joko Santoso', 'joko.kasir');
+-- Data untuk tabel KARYAWAN
+INSERT INTO KARYAWAN (nama, username, password, role) VALUES
+('Admin Utama', 'admin1', 'password123', 'admin'),
+('Manager Toko', 'manager1', 'password123', 'manager'),
+('Kasir Satu', 'kasir1', 'password123', 'kasir'),
+('Kasir Dua', 'kasir2', 'kasir123', 'kasir'),
+('Manager Gudang', 'manager2', 'manager123', 'manager'),
+('Admin Cadangan', 'admin2', 'admin123', 'admin');
 
 -- Data untuk tabel PRODUK
 INSERT INTO PRODUK (nama_produk, harga, deskripsi) VALUES

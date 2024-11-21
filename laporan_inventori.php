@@ -18,7 +18,7 @@ $total_items = $total_result->fetch_row()[0];
 
 $total_pages = ceil($total_items / $limit);
 
-$sql = "SELECT id_stok, id_produk, jumlah, tanggal_update 
+$sql = "SELECT id, id_produk, jumlah, tanggal_update 
 FROM stok 
 ORDER BY $order $sort 
 LIMIT $limit OFFSET $offset";
@@ -47,7 +47,7 @@ $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>
                                     <td style='text-align:center;'>{$number}</td>
-                                    <td>{$row['id_stok']}</td>
+                                    <td>{$row['id']}</td>
                                     <td>{$row['id_produk']}</td>
                                     <td>{$row['jumlah']}</td>
                                     <td>{$row['tanggal_update']}</td>
