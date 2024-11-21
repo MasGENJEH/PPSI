@@ -1,0 +1,26 @@
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Tinggi layar penuh */
+  margin: 0;
+  background-color: #f9f9f9;
+}
+.button-container {
+  text-align: center; /* Mengatur teks dan tombol ke tengah */
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+.btn:hover {
+  background-color: #0056b3; /* Efek hover */
+}
