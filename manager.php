@@ -8,10 +8,9 @@
                 <h1 class="mb-4" style="text-align:center;">Manager</h1>
                 <div class="container">
                     <form action="proses.php" method="POST">
-                        <a href="laporan_inventori.php" class="btn btn-primary">Laporan
+                        <a href="laporan_inventori_manager.php" class="btn btn-primary">Laporan
                             Inventory</a><br>
                         <a href="laporan_penjualan.php" class="btn btn-primary">Laporan Penjualan</a><br>
-                        <a href="#" class="btn btn-primary">Permintaan Laporan</a>
                 </div>
 </body>
 

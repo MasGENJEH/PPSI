@@ -7,19 +7,19 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 $offset = ($page - 1) * $limit;
 
-$order = isset($_GET['order']) ? $_GET['order'] : 'id';
+$order = isset($_GET['order']) ? $_GET['order'] : 'id_produk';
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'asc';
 
 $next_sort = $sort === 'asc' ? 'desc' : 'asc';
 
-$total_sql = "SELECT COUNT(*) FROM penjualan";
+$total_sql = "SELECT COUNT(*) FROM stok";
 $total_result = $conn->query($total_sql);
 $total_items = $total_result->fetch_row()[0];
 
 $total_pages = ceil($total_items / $limit);
 
-$sql = "SELECT id, id_pelanggan, id_kasir, tanggal_penjualan, total_harga
-FROM penjualan 
+$sql = "SELECT id, id_produk, jumlah, tanggal_update 
+FROM stok 
 ORDER BY $order $sort 
 LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
@@ -32,15 +32,14 @@ $result = $conn->query($sql);
     <div class="container mt-5">
         <div class="row">
             <div class="col">
-                <h1 class="mb-4" style="text-align:center;">Laporan Penjualan</h1>
+                <h1 class="mb-4" style="text-align:center;">Laporan Inventori</h1>
                 <table class="table table-striped" width="100%">
                     <tr>
                         <th width="3%" style="text-align:center;">no</th>
-                        <th>Id Penjualan</th>
-                        <th>Id Pelanggan</th>
-                        <th>Id Kasir</th>
-                        <th>Tanggal Penjualan</th>
-                        <th>Total Harga</th>
+                        <th>Id Stok</th>
+                        <th>Id Barang</th>
+                        <th>Jumlah</th>
+                        <th>Tanggal Update</th>
                     </tr>
                     <?php
                     if ($result->num_rows > 0) {
@@ -49,10 +48,13 @@ $result = $conn->query($sql);
                             echo "<tr>
                                     <td style='text-align:center;'>{$number}</td>
                                     <td>{$row['id']}</td>
-                                    <td>{$row['id_pelanggan']}</td>
-                                    <td>{$row['id_kasir']}</td>
-                                    <td>{$row['tanggal_penjualan']}</td>
-                                    <td>{$row['total_harga']}</td>
+                                    <td>{$row['id_produk']}</td>
+                                    <td>{$row['jumlah']}</td>
+                                    <td>{$row['tanggal_update']}</td>
+                                    <td>
+                                        <a class='btn btn-warning btn-sm' href='update.php?id={$row['id']}'>Edit</a>
+                                        <a class='btn btn-danger btn-sm' href='delete_stok.php?id={$row['id']}'>Hapus</a>
+                                    </td>
                                   </tr>";
                             $number++;
                         }
@@ -60,6 +62,7 @@ $result = $conn->query($sql);
                         echo "<tr><td colspan='6'>No items found</td></tr>";
                     }
                     ?>
+
                 </table>
 </body>
 

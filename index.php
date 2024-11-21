@@ -24,7 +24,6 @@ include 'config.php';
                             placeholder="Masukkan Password" required><br>
 
                         <button class="btn btn-primary">Login</button>
-
                 </div>
 </body>
 

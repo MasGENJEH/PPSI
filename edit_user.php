@@ -3,7 +3,7 @@ include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM barang WHERE id='$id'";
+    $sql = "SELECT * FROM stok WHERE id='$id'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -14,17 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];
-    $namaBarang = $_POST['nama_barang'];
-    $jenisBarang = $_POST['jenis_barang'];
-    $harga = $_POST['harga'];
-    $stok = $_POST['stok'];
+    $idProduk = $_POST['id_produk'];
+    $jumlah = $_POST['jumlah'];
 
-    $sql = "UPDATE barang SET nama_barang='$namaBarang', jenis_barang='$jenisBarang', harga=$harga, stok=$stok WHERE id='$id'";
+    $sql = "UPDATE stok SET jumlah=$jumlah WHERE id='$id'";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>
                 alert('Barang Berhasil di update!');
-                window.location.href='index.php';
+                window.location.href='kasir.php';
               </script>";
         exit();
     } else {

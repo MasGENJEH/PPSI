@@ -4,12 +4,12 @@ include 'config.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM barang WHERE id='$id'";
+    $sql = "DELETE FROM produk WHERE id='$id'";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>
                 alert('Barang Berhasil Dihapus!');
-                window.location.href='index.php';
+                window.location.href='admin.php';
               </script>";
         exit();
     } else {
